@@ -8,7 +8,10 @@ export default defineI18nConfig(() => ({
         description: 'Insert your player\'s attributes and the app will show you the recommended traits for him.',
       },
       results: {
-        header: 'These are the recommended traits for your player'
+        header: 'These are the recommended traits for your player',
+        result: 'Result: {weight}',
+        min: 'Lowest attribute: {min}',
+        max: 'Highest attribute: {max}',
       },
       attributes: {
         'corners': 'Corners',
@@ -60,11 +63,11 @@ export default defineI18nConfig(() => ({
         'strength': 'Strength',
       },
       categories: {
-        'technical': 'Technical',
-        'goalkeeping': 'Goalkeeping',
-        'mental': 'Mental',
-        'physical': 'Physical'
-      }
+        technical: 'Technical',
+        goalkeeping: 'Goalkeeping',
+        mental: 'Mental',
+        physical: 'Physical',
+      },
     },
-  }
+  },
 }))

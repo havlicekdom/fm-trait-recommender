@@ -8,9 +8,20 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ["@nuxtjs/i18n", "@nuxt/eslint"],
+  modules: ['@nuxtjs/i18n', '@nuxt/eslint'],
+  eslint: {
+    config: {
+      stylistic: {
+        indent: 2,
+        semi: false,
+      },
+    },
+  },
   i18n: {
     locales: ['en'],
-    defaultLocale: 'en', 
-  }
+    defaultLocale: 'en',
+  },
+  typescript: {
+    typeCheck: true,
+  },
 })
