@@ -10,6 +10,7 @@ export default defineI18nConfig(() => ({
       results: {
         header: 'These are the recommended traits for your player',
         result: 'Result: {weight}',
+        filterMinValue: 'Minimal required attribute:',
         min: 'Lowest attribute: {min}',
         max: 'Highest attribute: {max}',
       },

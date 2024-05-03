@@ -1,0 +1,17 @@
+{
+  "Vue component": {
+    "body": [
+      "<template>",
+      "  <div></div>",
+      "</template>",
+      "",
+      "<script setup lang=\"ts\">",
+      "const props = defineProps<{$1}>()",
+      "",
+      "const emits = defineEmits<{$2}>()",
+      "",
+      "</script>",
+    ],
+    "description": "Snippet for creating a new component"
+  },
+}

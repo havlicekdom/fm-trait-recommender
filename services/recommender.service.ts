@@ -8,22 +8,26 @@ export class RecommenderService {
     this.player = player
   }
 
-  recommendTraits(): WeightedTrait[] {
-    return traits.map((trait) => {
-      const valuesForTrait = this.getTraitWeightForPlayer(trait)
+  recommendTraits(minAttributeValue: number): WeightedTrait[] {
+    return traits.reduce<WeightedTrait[]>((array, trait) => {
+      const valuesForTrait = this.getTraitWeightForPlayer(trait, minAttributeValue)
 
-      return {
-        ...trait,
-        ...valuesForTrait,
+      if (valuesForTrait) {
+        array.push({
+          ...trait,
+          ...valuesForTrait,
+        })
       }
-    }).sort((a, b) => b.weight - a.weight)
+
+      return array
+    }, []).sort((a, b) => b.weight - a.weight)
   }
 
-  getTraitWeightForPlayer(trait: Trait): {
+  getTraitWeightForPlayer(trait: Trait, minAttributeValue: number): {
     weight: number
     min: number
     max: number
-  } {
+  } | undefined {
     let sum = 0
     let min = 20
     let max = 0
@@ -34,6 +38,8 @@ export class RecommenderService {
       if (attributeValue > max) max = attributeValue
       if (attributeValue < min) min = attributeValue
     })
+
+    if (min < minAttributeValue) return
 
     return {
       weight: sum / trait.dependsOn.length,

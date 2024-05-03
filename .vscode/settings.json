@@ -1,5 +1,11 @@
 {
   "editor.codeActionsOnSave": {
       "source.fixAll": true
-  }
+  },
+  "autoSnippet.snippets": [
+    {
+      "pattern": "**/*.vue",
+      "snippet": "Vue component"
+    },
+  ],
 }
